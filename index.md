@@ -23,7 +23,6 @@ tutorials/index
 user-guide/index
 development/index
 reference/index
-genindex
 ```
 
 **GRABNES** (**GRA**phene/**B**N **E**lectronic **S**tructure) is a Fortran
