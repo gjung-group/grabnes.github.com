@@ -85,10 +85,10 @@ conf.py: Nicolas Leconte (2022), group: gjung-group (G. Jung, U. Liège).
   `docs/` folder, no symlinks; every section is a real top-level folder:
 
 ```
-conf.py                    # project config (pydata theme, myst, math, links)
+conf.py                    # project config (furo theme, myst, math, links)
 index.md                   # landing page: what GRABNES is + feature gallery
 installation.md            # compile (make.sys, Intel/gfortran, OMP) + Colab
-requirements.txt           # sphinx, pydata-sphinx-theme, myst-parser, sphinx-design
+pyproject.toml             # deps (sphinx, furo, myst-parser, sphinx-design); uv sync
 assets/                    # ALL binary/support files (single source of truth)
 ├── images/                # PNGs from grabnes/.../figures/ + examples/*/reference/
 ├── downloads/             # sample inputs, scripts, notebooks, example folders
@@ -160,20 +160,20 @@ reference/index.md         # "API Reference" page (unit list from grabnes.rst;
    (extend `.gitignore` accordingly).
 6. The old tree under `grabnes/` stays read-only until migration is verified;
    delete it (and `grabnes.tar.gz`) only in a final, separate commit.
-7. Python tooling: pin deps in `requirements.txt`
-   (`sphinx`, `pydata-sphinx-theme`, `myst-parser`, `sphinx-design`); CI installs from it.
+7. Python tooling: declare deps in `pyproject.toml`
+   (`sphinx`, `furo`, `myst-parser`, `sphinx-design`); `uv sync` builds `.venv`
+   from `uv.lock`, and CI installs the same way.
 8. Commits: small, imperative-mood messages ("Add theory/models page…").
 
 ## 6. Build & deploy
 
 ```bash
-python -m venv .venv && . .venv/bin/activate
-pip install -r requirements.txt
-sphinx-build -b html . _build                  # local preview: open _build/index.html
+uv sync                                        # create .venv from pyproject/uv.lock
+uv run sphinx-build -b html . _build           # local preview: open _build/index.html
 ```
 
-CI (`.github/workflows/docs.yml`): push to `main` → install deps →
-`sphinx-build -b html . public` → `upload-pages-artifact` → GitHub Pages
+CI (`.github/workflows/docs.yml`): push to `main` → `uv sync` →
+`uv run sphinx-build -b html . public` → `upload-pages-artifact` → GitHub Pages
 (site from Actions). Repository Settings → Pages → "GitHub Actions".
 
 ## 7. Open questions / follow-ups

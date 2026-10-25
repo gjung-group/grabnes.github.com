@@ -15,7 +15,7 @@ The website will feature the following:
 ## Current state
 
 The site is a Sphinx documentation tree whose **source directory is the
-repository root**, built with MyST-Markdown, the pydata-sphinx-theme, and
+repository root**, built with MyST-Markdown, the Furo theme, and
 sphinx-design, and deployed to GitHub Pages by a GitHub Actions workflow.
 Content comes from two sources: the old (2022) Sphinx tree that used to live
 in `grabnes/` (being retired), and the
@@ -39,13 +39,12 @@ Sections:
 ## Building locally
 
 ```bash
-python -m venv .venv && . .venv/bin/activate
-pip install -r requirements.txt
-sphinx-build -b html . _build        # open _build/index.html
+uv sync                                        # creates .venv from pyproject/uv.lock
+uv run sphinx-build -b html . _build           # open _build/index.html
 ```
 
 The CI build treats warnings as errors; check with
-`sphinx-build -b html -W --keep-going . _build` before committing.
+`uv run sphinx-build -b html -W --keep-going . _build` before committing.
 
 ## Deployment
 
