@@ -48,5 +48,6 @@ The CI build treats warnings as errors; check with
 
 ## Deployment
 
+The live site is at <https://gjung-group.github.io/grabnes.github.com/>.
 `.github/workflows/docs.yml` builds the site to `public/` on every push to
 `main` and uploads it to GitHub Pages (Settings → Pages → "GitHub Actions").
