@@ -90,21 +90,26 @@ index.md                   # landing page: what GRABNES is + feature gallery
 installation.md            # compile (make.sys, Intel/gfortran, OMP) + Colab
 requirements.txt           # sphinx, furo, myst-parser, sphinx-design
 assets/                    # ALL binary/support files (single source of truth)
-├── images/                # PNGs migrated from grabnes/.../figures/
-├── downloads/             # sample input files, scripts, original notebooks
+├── images/                # PNGs from grabnes/.../figures/ + examples/*/reference/
+├── downloads/             # sample inputs, scripts, notebooks, example folders
+│   └── examples/          # per-example inputs/scripts mirrored from the code repo
 └── static/                # css/js/logo (served under _static/ by Sphinx)
-theory/                    # models.md, moire-cells.md, observables.md
+theory/                    # models.md, moire-cells.md, observables.md, tapw-procedure.md
+examples/                  # index + getting-started (01–04), moire (05–09), arpes (10–13)
+user-guide/                # input-file, input-keys (generated table), tapw-soc-input
 tutorials/                 # graphene, bilayer-graphite, tbg, graphene-on-hbn,
                            # input-reference, plotting (+ index)
 benchmarks/                # benchmarks section sources
-development/               # development guide sources
+development/               # code-structure guide + documents copied from the code
+                           # repo (functionality-status, validation, conventions…)
 reference/index.md         # "API Reference" page (unit list from grabnes.rst;
                            # autodoc pending, sphinx-fortran is dead)
 .github/workflows/docs.yml # build + deploy to GitHub Pages
 ```
 
-  Non-content markdown (`README.md`, `AGENTS.md`) and the old `grabnes/` tree
-  are excluded in `conf.py`'s `exclude_patterns`.
+  Non-content markdown (`README.md`, `AGENTS.md`), the old `grabnes/` tree and
+  everything under `assets/downloads/` (its `README.md` files are data, not
+  pages) are excluded in `conf.py`'s `exclude_patterns`.
 
 - Markdown pages cross-link with `{doc}` roles; images are referenced as
   `assets/images/...` (root pages) or `../assets/images/...` (section pages);
@@ -129,6 +134,10 @@ reference/index.md         # "API Reference" page (unit list from grabnes.rst;
 | `results.ipynb` | `tutorials/plotting.md` | Python post-processing recipes |
 | `figures/*.png` | `assets/images/` | rename to kebab-case when unambiguous |
 | `notebooks/*.{in,mol,dat,f90,py}` | `assets/downloads/` | sample inputs/scripts |
+| code repo `examples/*/README.md` + figures | `examples/{getting-started,moire,arpes}.md` + `assets/{images,downloads}/examples/` | mirrored October 2026; reference `.dat` data stays in the code repo |
+| code repo `docs/user-guide/*.md` | `user-guide/` | `input-keys.md` is generated from source — regenerate, never hand-edit |
+| code repo `docs/development/*.md` | `development/` | verbatim copies; `README.md` folded into `index.md` |
+| code repo `docs/theory/tapw-procedure.tex` | `theory/tapw-procedure.md` | LaTeX → MyST, formulas verbatim |
 
 ## 5. Working rules for agents
 
@@ -171,8 +180,8 @@ CI (`.github/workflows/docs.yml`): push to `main` → install deps →
 
 - [ ] Canonical URL of the Fortran code repo (for Installation/Reference links) —
       likely `github.com/gjung-group/grabnes`; confirm before linking.
-- [ ] `README.md` mentions `grabnes/examples/*` — that directory is not in this
-      repo; get the example files from the code repo for the tutorials.
+- [x] `README.md` mentioned `grabnes/examples/*` — resolved: the example files
+      are mirrored from the code repo into `examples/` and `assets/downloads/examples/`.
 - [ ] Fill empty illustration stubs (G/hBN gap, supermoire, impurity states) —
       needs content from maintainers.
 - [ ] Decide logo/branding; currently none.

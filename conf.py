@@ -39,6 +39,8 @@ exclude_patterns = [
     "grabnes/*",
     "README.md",
     "AGENTS.md",
+    # README.md files inside downloadable example folders are data, not pages
+    "assets/downloads/**",
     "Thumbs.db",
     ".DS_Store",
 ]
