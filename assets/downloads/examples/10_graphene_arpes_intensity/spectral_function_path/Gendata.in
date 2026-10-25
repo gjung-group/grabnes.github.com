@@ -1,0 +1,41 @@
+Run.Description ARPES spectral function of pristine graphene
+Run.Prefix generate
+
+Run.TypeOfSystem Graphene
+TB.Hopping 3.1
+
+Structure.LatticeParameter 2.46
+Structure.CellSize 1
+Structure.SuperCell 1
+
+Kubo.Calc .false.
+Diag.Calc .true.
+Calculate.Spectral .true.
+
+# Photoemission matrix element of Wei and Ku, Phys. Rev. B 95, 085420 (2017), and
+# a Gaussian of width Kubo.Epsilon (in units of g0) instead of the default energy bin
+# of Spectral.energyGridResolution.
+Spectral.WeiKu .true.
+Spectral.UseGaussianBroadening .true.
+Kubo.Epsilon 0.02
+
+Spectral.NumPoints 20
+&begin Spectral.Path 4
+2/3  1/3  0.0   # K
+0.0  0.0  0.0   # Gamma
+0.5  0.0  0.0   # M
+2/3  1/3  0.0   # K'
+&end Spectral.Path
+
+# Spectral.Emin and Spectral.Emax are in units of g0: 10.5/3.1 * 3.1 eV = 10.5 eV here, and the
+# 161 points are then 0.13125 eV apart. The bands reach +-3*g0 = +-9.3 eV at Gamma.
+Kubo.NumberofEnergyPoints 161
+Spectral.Emin 0-10.5/3.1
+Spectral.Emax 10.5/3.1
+
+TB.NeighLevels 1
+Neigh.CompareAll .true.
+Stack.NonBulkSmall .true.
+
+Output.WriteDataFiles .false.
+WritePos .false.

@@ -1,0 +1,55 @@
+Run.Description Constant-energy ARPES map of hBN at E = -3.5 eV over the first BZ
+Run.Prefix generate
+
+Run.TypeOfSystem Graphene
+TB.Hopping 2.88945
+
+Structure.LatticeParameter 2.505
+Structure.CellSize 1
+Structure.SuperCell 1
+
+# hBN as a honeycomb of two different atoms: the sublattice mass of 4.98 eV is the on-site
+# energy difference of the B and N atoms of Run.TypeOfSystem BoronNitride (TB.OnSiteB 3.09
+# minus TB.OnSiteN -1.89), and TB.Hopping is the BN hopping -3.11*a + 10.68 of that model at
+# a = 2.505 Angstrom. BoronNitride itself cannot be used here: its atoms are Species 3 and 4,
+# and the photoemission weights of Spectral.WeiKu are only implemented for Species 1 and 2, so
+# every spectral file would hold zeros.
+Potential.AddSublatticeMassterm .true.
+Potential.SublatticeMassterm 4.98
+
+Kubo.Calc .false.
+Diag.Calc .true.
+
+# Constant-energy map I(kx,ky): the grid is Diag.KGrid points per direction inside a square of
+# half-width Spectral.KGridCut (1/Angstrom) around the single point of Spectral.Path, which
+# with Spectral.UseCoordinates .true. is a Cartesian photoelectron momentum.
+Calculate.SpectralEnergyCut .true.
+Spectral.WeiKu .true.
+
+Diag.KGrid 181 181 1
+Spectral.KGridCut 1.75
+Spectral.UseCoordinates .true.
+&begin Spectral.Path 1
+0.0 0.0 0.0   # center of the map: Gamma
+&end Spectral.Path
+
+# The intensity of the first energy plane is the map; it sits exactly at Spectral.Emin, in units
+# of g0, here -3.5 eV measured from the charge neutrality point (the bands are symmetric about
+# it, unlike the +-0.6 eV shifted B and N site energies). This energy lies between the valence
+# band top of -2.49 eV at K and the saddle point of -3.82 eV at M, which is why the map shows
+# six separate hole pockets around the K points; at -4.0 eV, below the saddle point, the contour
+# has merged into one web around the zone boundary. The second plane is a dummy
+# 12*Kubo.Epsilon higher; only the first plane is used. States within Spectral.energyGridResolution
+# (eV) of a plane energy contribute.
+Kubo.NumberofEnergyPoints 2
+Spectral.Emin 0-3.5/2.88945
+Spectral.Emax 0-3.5/2.88945+0.24
+Kubo.Epsilon 0.02
+Spectral.energyGridResolution 0.2
+
+TB.NeighLevels 1
+Neigh.CompareAll .true.
+Stack.NonBulkSmall .true.
+
+Output.WriteDataFiles .false.
+WritePos .false.

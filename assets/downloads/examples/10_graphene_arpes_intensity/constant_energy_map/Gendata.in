@@ -1,0 +1,36 @@
+Run.Description Constant-energy ARPES map of graphene at E = -1.2 eV over the first BZ
+Run.Prefix generate
+
+Run.TypeOfSystem Graphene
+TB.Hopping 3.1
+
+Structure.LatticeParameter 2.46000
+Structure.CellSize 1
+Structure.SuperCell 1
+
+Calculate.OnlyDOS .false.
+Kubo.Calc .false.
+Diag.Calc .true.
+
+Calculate.SpectralEnergyCut .true.
+Spectral.WeiKu .true.
+
+Diag.KGrid 181 181 1
+Spectral.KGridCut 1.8
+Spectral.UseCoordinates .true.
+&begin Spectral.Path 1
+0.0 0.0 0.0   # Gamma
+&end Spectral.Path
+
+Kubo.NumberofEnergyPoints 2
+Spectral.Emin 0-1.2/3.1
+Spectral.Emax 0-1.2/3.1+0.24
+Kubo.Epsilon 0.02
+Spectral.energyGridResolution 0.2
+
+TB.NeighLevels 1
+Neigh.CompareAll .true.
+Stack.NonBulkSmall .true.
+
+Output.WriteDataFiles .false.
+WritePos .false.

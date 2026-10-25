@@ -8,4 +8,5 @@ The physics implemented in GRABNES, organized in three parts:
 models
 moire-cells
 observables
+tapw-procedure
 ```

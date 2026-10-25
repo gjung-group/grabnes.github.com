@@ -1,0 +1,37 @@
+Run.Description Coherent ARPES map of graphene near K+ at E = -0.12 eV (Nishi weights)
+Run.Prefix generate
+
+Run.TypeOfSystem Graphene
+TB.Hopping 3.1
+
+Structure.LatticeParameter 2.46000
+Structure.CellSize 1
+Structure.SuperCell 1
+
+Calculate.OnlyDOS .false.
+Kubo.Calc .false.
+Diag.Calc .true.
+
+Calculate.SpectralEnergyCut .true.
+Spectral.WeiKu .false.
+Spectral.Nishi .true.
+
+Diag.KGrid 181 181 1
+Spectral.KGridCut 0.06
+Spectral.UseCoordinates .true.
+&begin Spectral.Path 1
+1.702760 0.0 0.0   # K+
+&end Spectral.Path
+
+Kubo.NumberofEnergyPoints 2
+Spectral.Emin 0-0.12/3.1
+Spectral.Emax 0-0.12/3.1+0.24
+Kubo.Epsilon 0.02
+Spectral.energyGridResolution 0.05
+
+TB.NeighLevels 1
+Neigh.CompareAll .true.
+Stack.NonBulkSmall .true.
+
+Output.WriteDataFiles .false.
+WritePos .false.

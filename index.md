@@ -6,8 +6,10 @@
 
 installation
 theory/index
+examples/index
 benchmarks/index
 tutorials/index
+user-guide/index
 development/index
 reference/index
 genindex

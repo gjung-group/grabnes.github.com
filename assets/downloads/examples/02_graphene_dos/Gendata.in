@@ -1,0 +1,27 @@
+Run.Description Pristine graphene density of states
+Run.Prefix generate
+
+Run.TypeOfSystem Graphene
+
+TB.Hopping 3.1
+
+Structure.CellSize 1
+Structure.SuperCell 1
+
+Kubo.Calc .false.
+Diag.Calc .true.
+Calculate.DOS .true.
+Calculate.Bands .false.
+
+Diag.KGrid 30 30 1
+Kubo.NumberofEnergyPoints 301
+Kubo.Epsilon 0.12
+DOS.Emin 0-10.0
+DOS.Emax 10.0
+
+TB.NeighLevels 1
+Neigh.CompareAll .true.
+Stack.NonBulkSmall .true.
+
+Output.WriteDataFiles .false.
+WritePos .false.
