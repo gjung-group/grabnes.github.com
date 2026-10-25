@@ -188,7 +188,8 @@ CI (`.github/workflows/docs.yml`): push to `main` → `uv sync` →
       are mirrored from the code repo into `examples/` and `assets/downloads/examples/`.
 - [ ] Fill empty illustration stubs (G/hBN gap, supermoire, impurity states) —
       needs content from maintainers.
-- [x] Logo/branding: `assets/static/logo.{svg,png}` (wordmark) and
-      `logo-icon.{svg,png}` (square icon, also the site favicon); referenced
-      from `README.md` and set as `html_logo`/`html_favicon` in `conf.py`.
+- [x] Logo/branding: `assets/static/logo1.png` (wordmark banner, added by the
+      maintainers) and `logo-icon.png` (square icon cropped from it, also the
+      site favicon); referenced from `README.md` and set as
+      `html_logo`/`html_favicon` in `conf.py`.
 - [ ] Remove `grabnes/` and `grabnes.tar.gz` after final migration commit.

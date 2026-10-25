@@ -1,7 +1,7 @@
 # grabnes.github.com
 
 <p align="center">
-  <img src="assets/static/logo.svg" alt="GRABNES logo" width="480">
+  <img src="assets/static/logo1.png" alt="GRABNES logo" width="480">
 </p>
 
 The reconstructed website (static page) for grabnes.
