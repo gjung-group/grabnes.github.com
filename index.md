@@ -1,4 +1,15 @@
-# GRABNES documentation
+# Welcome to GRABNES's documentation!
+
+This documentation covers everything needed to run GRABNES, from installing
+the code to interpreting production results: {doc}`installation` gets you
+compiling (or running in the browser via Colab), {doc}`theory/index` explains
+the physics — tight-binding models, moiré supercells and observables —
+{doc}`examples/index` collects the supported, reproducible example
+calculations, {doc}`tutorials/index` walks through the workflows step by
+step, and {doc}`user-guide/index` documents the input file and every input
+key. Published results are gathered in {doc}`benchmarks/index`, the state of
+the code in {doc}`development/index`, and the Fortran units in
+{doc}`reference/index`.
 
 ```{toctree}
 :maxdepth: 2
