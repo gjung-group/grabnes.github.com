@@ -47,16 +47,31 @@ exclude_patterns = [
 
 # -- Options for HTML output -------------------------------------------------
 
-html_theme = "furo"
+html_theme = "pydata_sphinx_theme"
 html_title = "GRABNES documentation"
 # assets/ holds images, sample inputs and static files; its static/ subfolder
 # is served under _static/ by Sphinx.
 html_static_path = ["assets/static"]
 html_css_files = ["grabnes.css"]
-html_logo = "assets/static/logo.svg"
 html_favicon = "assets/static/logo-icon.png"
 
-html_theme_options = {}
+html_theme_options = {
+    "logo": {"image": "logo.svg", "image_dark": "logo.svg", "alt_text": "GRABNES"},
+    "icon_links": [
+        {
+            "name": "Code repository",
+            "url": "https://github.com/gjung-group/grabnes",
+            "icon": "fa-brands fa-github",
+        },
+    ],
+    "navbar_align": "content",
+    "header_links_before_dropdown": 8,
+    "show_nav_level": 1,
+    "show_prev_next": True,
+    "navigation_with_keys": False,
+    "footer_start": ["copyright"],
+    "footer_center": ["sphinx-version"],
+}
 
 # External links that should not be checked during builds
 nitpick_ignore = []

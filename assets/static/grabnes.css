@@ -1,23 +1,44 @@
-/* GRABNES site customizations */
+/* GRABNES site customizations (pydata-sphinx-theme) */
+
+/* Brand color: the blue of the logo wordmark */
+html {
+  --pst-color-primary: #2563eb;
+}
+html[data-theme="dark"] {
+  --pst-color-primary: #58a6ff;
+}
 
 img {
   max-width: 100%;
   height: auto;
 }
 
-/* {task} and {todo} admonitions (see docs/conf.py) */
+/* {task} and {todo} admonitions (see conf.py) */
 aside.task,
 aside.todo {
-  padding: 0.2rem 0.75rem 0.5rem;
+  padding: 0.2rem 0.9rem 0.6rem;
   margin: 1rem 0;
-  border-radius: 0.3rem;
+  border-radius: 0.4rem;
 }
 
 aside.task {
-  background: var(--color-background-secondary);
-  border-left: 3px solid var(--color-brand-primary);
+  background: var(--pst-color-surface);
+  border-left: 4px solid var(--pst-color-primary);
 }
 
 aside.todo {
-  background: var(--color-warning-background);
+  background: var(--pst-color-warning-bg);
+  border-left: 4px solid var(--pst-color-warning);
+}
+
+/* Figures: subtle frame so white plots sit cleanly on the page */
+.bd-content img {
+  border: 1px solid var(--pst-color-border);
+  border-radius: 0.4rem;
+}
+
+/* The download link rows at the end of tutorials read better smaller */
+.bd-content p a reference,
+footer {
+  font-size: inherit;
 }

@@ -15,7 +15,7 @@ The website will feature the following:
 ## Current state
 
 The site is a Sphinx documentation tree whose **source directory is the
-repository root**, built with MyST-Markdown, the Furo theme, and
+repository root**, built with MyST-Markdown, the pydata-sphinx-theme, and
 sphinx-design, and deployed to GitHub Pages by a GitHub Actions workflow.
 Content comes from two sources: the old (2022) Sphinx tree that used to live
 in `grabnes/` (being retired), and the

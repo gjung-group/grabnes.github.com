@@ -74,7 +74,7 @@ conf.py: Nicolas Leconte (2022), group: gjung-group (G. Jung, U. Liège).
 
 - **Stack: modernized Sphinx** — MyST-Markdown sources (`myst-parser`),
   `myst-nb` off (notebooks are converted, not embedded), `sphinx-design`,
-  `sphinxcontrib-bibtex` if references grow, **furo** theme, MathJax for
+  `sphinxcontrib-bibtex` if references grow, **pydata-sphinx-theme** theme, MathJax for
   equations. Build via `sphinx-build`; deploy with a GitHub Actions workflow to
   GitHub Pages (actions/configure-pages + upload-pages-artifact).
 - **Notebooks → Markdown pages**: convert markdown cells to MyST prose, keep
@@ -85,10 +85,10 @@ conf.py: Nicolas Leconte (2022), group: gjung-group (G. Jung, U. Liège).
   `docs/` folder, no symlinks; every section is a real top-level folder:
 
 ```
-conf.py                    # project config (furo, myst, math, links)
+conf.py                    # project config (pydata theme, myst, math, links)
 index.md                   # landing page: what GRABNES is + feature gallery
 installation.md            # compile (make.sys, Intel/gfortran, OMP) + Colab
-requirements.txt           # sphinx, furo, myst-parser, sphinx-design
+requirements.txt           # sphinx, pydata-sphinx-theme, myst-parser, sphinx-design
 assets/                    # ALL binary/support files (single source of truth)
 ├── images/                # PNGs from grabnes/.../figures/ + examples/*/reference/
 ├── downloads/             # sample inputs, scripts, notebooks, example folders
@@ -161,7 +161,7 @@ reference/index.md         # "API Reference" page (unit list from grabnes.rst;
 6. The old tree under `grabnes/` stays read-only until migration is verified;
    delete it (and `grabnes.tar.gz`) only in a final, separate commit.
 7. Python tooling: pin deps in `requirements.txt`
-   (`sphinx`, `furo`, `myst-parser`, `sphinx-design`); CI installs from it.
+   (`sphinx`, `pydata-sphinx-theme`, `myst-parser`, `sphinx-design`); CI installs from it.
 8. Commits: small, imperative-mood messages ("Add theory/models page…").
 
 ## 6. Build & deploy
