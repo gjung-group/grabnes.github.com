@@ -1,0 +1,23 @@
+/* GRABNES site customizations */
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* {task} and {todo} admonitions (see docs/conf.py) */
+aside.task,
+aside.todo {
+  padding: 0.2rem 0.75rem 0.5rem;
+  margin: 1rem 0;
+  border-radius: 0.3rem;
+}
+
+aside.task {
+  background: var(--color-background-secondary);
+  border-left: 3px solid var(--color-brand-primary);
+}
+
+aside.todo {
+  background: var(--color-warning-background);
+}
