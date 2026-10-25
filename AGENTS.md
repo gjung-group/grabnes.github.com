@@ -88,7 +88,7 @@ conf.py: Nicolas Leconte (2022), group: gjung-group (G. Jung, U. Liège).
 conf.py                    # project config (furo theme, myst, math, links)
 index.md                   # landing page: what GRABNES is + feature gallery
 installation.md            # compile (make.sys, Intel/gfortran, OMP) + Colab
-pyproject.toml             # deps (sphinx, furo, myst-parser, sphinx-design); uv sync
+pyproject.toml             # deps (sphinx, furo, myst-parser, sphinx-design, ford); uv sync
 assets/                    # ALL binary/support files (single source of truth)
 ├── images/                # PNGs from grabnes/.../figures/ + examples/*/reference/
 ├── downloads/             # sample inputs, scripts, notebooks, example folders
@@ -102,8 +102,9 @@ tutorials/                 # graphene, bilayer-graphite, tbg, graphene-on-hbn,
 benchmarks/                # benchmarks section sources
 development/               # code-structure guide + documents copied from the code
                            # repo (functionality-status, validation, conventions…)
-reference/index.md         # "API Reference" page (unit list from grabnes.rst;
-                           # autodoc pending, sphinx-fortran is dead)
+reference/index.md         # "API Reference" entry page (unit tables, links into units)
+reference/units.md         # generated Fortran unit reference — never hand-edit
+tools/gen_api_reference.py # regenerates reference/units.md (Ford parser over ../grabnes)
 .github/workflows/docs.yml # build + deploy to GitHub Pages
 ```
 
@@ -161,9 +162,12 @@ reference/index.md         # "API Reference" page (unit list from grabnes.rst;
 6. The old tree under `grabnes/` stays read-only until migration is verified;
    delete it (and `grabnes.tar.gz`) only in a final, separate commit.
 7. Python tooling: declare deps in `pyproject.toml`
-   (`sphinx`, `furo`, `myst-parser`, `sphinx-design`); `uv sync` builds `.venv`
-   from `uv.lock`, and CI installs the same way.
-8. Commits: small, imperative-mood messages ("Add theory/models page…").
+   (`sphinx`, `furo`, `myst-parser`, `sphinx-design`, `ford`); `uv sync` builds
+   `.venv` from `uv.lock`, and CI installs the same way.
+8. `reference/units.md` is generated: after code changes in `../grabnes`, run
+   `uv run python tools/gen_api_reference.py` and commit the result; never
+   hand-edit the file.
+9. Commits: small, imperative-mood messages ("Add theory/models page…").
 
 ## 6. Build & deploy
 

@@ -33,7 +33,7 @@ Sections:
 | `user-guide/` | input-file format, the complete input-key reference, TAPW + SOC input |
 | `benchmarks/` | benchmark studies (tBG flat bands, graphite, ARPES) + "coming soon" stubs |
 | `development/` | code structure, functionality status, validation record, conventions |
-| `reference/` | API reference entry page (Fortran unit list; autodoc pending) |
+| `reference/` | API reference entry page + generated Fortran unit reference |
 | `assets/` | all images, downloadable inputs/scripts, and static CSS |
 
 ## Building locally

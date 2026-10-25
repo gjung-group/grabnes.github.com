@@ -8,6 +8,7 @@ dependencies = [
     "furo>=2024.8",
     "myst-parser>=3.0",
     "sphinx-design>=0.6",
+    "ford>=7.0.13",
 ]
 
 [tool.uv]
