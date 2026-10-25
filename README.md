@@ -1,4 +1,9 @@
 # grabnes.github.com
+
+<p align="center">
+  <img src="assets/static/logo.svg" alt="GRABNES logo" width="480">
+</p>
+
 The reconstructed website (static page) for grabnes.
 
 The website will feature the following:

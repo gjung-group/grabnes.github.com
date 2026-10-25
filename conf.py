@@ -53,6 +53,8 @@ html_title = "GRABNES documentation"
 # is served under _static/ by Sphinx.
 html_static_path = ["assets/static"]
 html_css_files = ["grabnes.css"]
+html_logo = "assets/static/logo.svg"
+html_favicon = "assets/static/logo-icon.png"
 
 html_theme_options = {}
 
