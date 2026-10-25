@@ -1,5 +1,17 @@
 # Welcome to GRABNES's documentation!
 
+**GRABNES** (**GRA**phene/**B**N **E**lectronic **S**tructure) is a Fortran
+tight-binding package for the electronic structure of layered two-dimensional
+materials. The name highlights the two standard materials that can be studied
+with this package by layering them into meaningful configurations. Additional
+2D materials can be included as well by modifying the code.
+
+Out of the box you can build graphene on hBN, twisted bilayer graphene,
+twisted multilayer graphene, hBN-encapsulated single-layer graphene,
+encapsulated bilayer graphene, and more, with full control over the twist
+angle and the sliding between layers. Commensurate cells are built
+automatically to account for periodic boundary conditions.
+
 This documentation covers everything needed to run GRABNES, from installing
 the code to interpreting production results: {doc}`installation` gets you
 compiling (or running in the browser via Colab), {doc}`theory/index` explains
@@ -24,18 +36,6 @@ user-guide/index
 development/index
 reference/index
 ```
-
-**GRABNES** (**GRA**phene/**B**N **E**lectronic **S**tructure) is a Fortran
-tight-binding package for the electronic structure of layered two-dimensional
-materials. The name highlights the two standard materials that can be studied
-with this package by layering them into meaningful configurations. Additional
-2D materials can be included as well by modifying the code.
-
-Out of the box you can build graphene on hBN, twisted bilayer graphene,
-twisted multilayer graphene, hBN-encapsulated single-layer graphene,
-encapsulated bilayer graphene, and more, with full control over the twist
-angle and the sliding between layers. Commensurate cells are built
-automatically to account for periodic boundary conditions.
 
 ## What you can compute
 
